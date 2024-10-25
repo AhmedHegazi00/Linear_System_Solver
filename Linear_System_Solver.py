@@ -70,6 +70,15 @@ class Matrix:
                     print("|", end="")
                 # print the number
                 print(matrix[r][c], end="")
+                # count the highest number length
+                for l in range(len(matrix)):
+                    length = 1
+                    if len(str((matrix[l][c]))) > length:
+                        length = len(str((matrix[l][c])))
+                # align numbers
+                if length > len(str(matrix[r][c])):
+                    for n in range(length - len(str(matrix[r][c]))):
+                        print(" ", end="")
                 # print the spaces
                 if c < len(matrix[r]) - 1:
                     print(" ", end="")
