@@ -77,6 +77,21 @@ class Matrix:
                 if c == len(matrix[r]) - 1:
                     print("|", end="")
             print()
+    @classmethod
+    def interchange_rows(cls, matrix, r1, r2):
+        matrix[r1-1] , matrix[r2-1] = matrix[r2-1] , matrix[r1-1]
+    @classmethod
+    def multiply_row(cls, matrix, r, constant):
+        if constant != 0:
+            for c in range(len(matrix[r-1])):
+                matrix[r-1][c] *= constant
+    @classmethod
+    def multiply_add_row(cls, matrix, r1, r2, constant):
+        r = list(matrix[r1-1])
+        for c in range(len(r)):
+            r[c] *= constant
+        for c in range(len(r)):
+            matrix[r2-1][c] += r[c]
 # program 
 print("""What are you going to enter?
 - Choose 1 to enter a system
